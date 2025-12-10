@@ -14,18 +14,19 @@ export default function WorkSection() {
 	const [bgColor, setBgColor] = useState('rgb(255,255,255)');
 	const [textOpacity, setTextOpacity] = useState(0.3);
 	const [activeIndex, setActiveIndex] = useState(0);
-	const [currentPlayingId, setCurrentPlayingId] = useState<string | null>(null);
 
-	const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
+	// Refs
+	const slideRefs = useRef<Array<HTMLDivElement | null>>([]);
 	const textRef = useRef<HTMLDivElement>(null);
 
 	// Hilfsfunktion: rgb() -> rgba() mit Alpha
-	const rgbToRgba = (rgb: string, alpha: number) => {
+	const rgbToRgba = (rgb: string, alpha: number): string => {
 		const match = rgb.match(/\d+/g);
 		if (!match) return rgb;
 		return `rgba(${match[0]}, ${match[1]}, ${match[2]}, ${alpha})`;
 	};
 
+	// Songs aus Sanity laden
 	useEffect(() => {
 		async function fetchSongs() {
 			const data: Song[] = await client.fetch(
@@ -38,8 +39,8 @@ export default function WorkSection() {
 		fetchSongs();
 	}, []);
 
-	// Funktion um Überlappung zu prüfen
-	const checkOverlap = () => {
+	// Prüfen, ob Text und Slide überlappen
+	const checkOverlap = (): number => {
 		const textEl = textRef.current;
 		const slideEl = slideRefs.current[activeIndex];
 		if (!textEl || !slideEl) return 0.3;
@@ -56,7 +57,7 @@ export default function WorkSection() {
 		return overlap ? 0.6 : 0.2;
 	};
 
-	// Animation Loop für dynamische Transparenz
+	// Animation Loop für Transparenz
 	useEffect(() => {
 		let animationFrame: number;
 
@@ -76,13 +77,13 @@ export default function WorkSection() {
 			className="work-section"
 			style={{
 				background: `linear-gradient(
-					135deg,
-					${rgbToRgba(bgColor, 0.4)} 0%,    
-					${rgbToRgba(bgColor, 0.6)} 20%,      
-					${rgbToRgba(bgColor, 0.9)} 50%,      
-					${rgbToRgba(bgColor, 0.6)} 80%,      
-					${rgbToRgba(bgColor, 0.4)} 100%    
-				)`,
+          135deg,
+          ${rgbToRgba(bgColor, 0.4)} 0%,
+          ${rgbToRgba(bgColor, 0.6)} 20%,
+          ${rgbToRgba(bgColor, 0.9)} 50%,
+          ${rgbToRgba(bgColor, 0.6)} 80%,
+          ${rgbToRgba(bgColor, 0.4)} 100%
+        )`,
 				transition: 'background 0.5s ease',
 			}}
 		>
@@ -102,20 +103,24 @@ export default function WorkSection() {
 				loop={true}
 				speed={700}
 				className="mySwiper"
-				onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // <- realIndex hier!
+				onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
 			>
 				{songs.map((song, index) => (
-					<SwiperSlide
-						key={song._id}
-						// style={{ width: '320px' }}
-						ref={(el) => (slideRefs.current[index] = el)}
-					>
-						<SongCard
-							song={song}
-							onColorExtracted={(color) => {
-								if (index === activeIndex) setBgColor(color);
+					<SwiperSlide key={song._id}>
+						{/* Wrapper Div für Ref */}
+						<div
+							ref={(el) => {
+								slideRefs.current[index] = el; // ✅ void zurückgegeben, TS happy
 							}}
-						/>
+							className="slide-wrapper"
+						>
+							<SongCard
+								song={song}
+								onColorExtracted={(color) => {
+									if (index === activeIndex) setBgColor(color);
+								}}
+							/>
+						</div>
 					</SwiperSlide>
 				))}
 			</Swiper>

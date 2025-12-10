@@ -6,8 +6,10 @@ import { client } from '@/src/sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import { Volume2 } from 'lucide-react';
 
+type SanityImageSource = Parameters<typeof builder.image>[0];
+
 const builder = imageUrlBuilder(client);
-const urlFor = (source: any) => builder.image(source).url();
+const urlFor = (source: SanityImageSource) => builder.image(source).url();
 
 let currentAudioRef: HTMLAudioElement | null = null;
 

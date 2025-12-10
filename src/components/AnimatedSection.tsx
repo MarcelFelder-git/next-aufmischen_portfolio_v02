@@ -1,7 +1,8 @@
 'use client';
 
 import { motion, useAnimation, useInView } from 'framer-motion';
-import { useRef, useEffect, ReactNode } from 'react';
+import { useRef, useEffect } from 'react';
+import type { ReactNode } from 'react';
 
 export default function AnimatedSection({ children }: { children: ReactNode }) {
 	const ref = useRef(null);
@@ -19,7 +20,7 @@ export default function AnimatedSection({ children }: { children: ReactNode }) {
 			initial={{ opacity: 0, y: 50 }}
 			animate={controls}
 			transition={{ duration: 0.6, ease: 'easeOut' }}
-			style={{ width: '100%' }}
+			style={{ width: '100%' } as React.CSSProperties} // ✅ Type Assertion
 		>
 			{children}
 		</motion.div>

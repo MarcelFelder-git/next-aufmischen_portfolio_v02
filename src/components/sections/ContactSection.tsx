@@ -1,9 +1,9 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { useState } from 'react';
+import type { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { sendEmail } from '@/src/utils/send-email';
-import Footer from '../Footer';
 
 export type FormData = {
 	name: string;
@@ -28,9 +28,13 @@ const Contact: FC = () => {
 			} else {
 				throw new Error('Unknown error');
 			}
-		} catch (err: any) {
+		} catch (err: unknown) {
 			setStatus('error');
-			setErrorMessage(err?.message || 'Something went wrong');
+			if (err instanceof Error) {
+				setErrorMessage(err.message);
+			} else {
+				setErrorMessage('Something went wrong');
+			}
 		}
 	}
 

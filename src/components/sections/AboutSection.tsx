@@ -1,8 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import type { SanityImageSource } from '@sanity/image-url';
+import { client } from '@/src/sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
 import { useLanguage } from '@/src/contexts/LanguageContext';
+
+const builder = imageUrlBuilder(client);
+
+// Typ direkt ableiten
+type SanityImageSource = Parameters<typeof builder.image>[0];
 
 interface AboutSectionProps {
 	bio_de: string;
@@ -10,7 +16,11 @@ interface AboutSectionProps {
 	image?: SanityImageSource;
 }
 
-export default function AboutSection({ bio_de, bio_en }: AboutSectionProps) {
+export default function AboutSection({
+	bio_de,
+	bio_en,
+	image,
+}: AboutSectionProps) {
 	const { lang } = useLanguage();
 	const bioText = lang === 'de' ? bio_de : bio_en;
 
@@ -25,7 +35,9 @@ export default function AboutSection({ bio_de, bio_en }: AboutSectionProps) {
 				{/* Middle – Image */}
 				<div className="about-image-wrapper">
 					<Image
-						src="/img/aufmischen_test_1.jpg"
+						src={
+							image ? builder.image(image).url() : '/img/aufmischen_test_1.jpg'
+						}
 						alt="About Image"
 						width={450}
 						height={450}
