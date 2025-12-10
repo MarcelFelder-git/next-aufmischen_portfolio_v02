@@ -206,6 +206,12 @@ textarea:focus {
 	}
 }
 
+@media (max-width: 468px) {
+	.contact-right {
+		margin-top: 2rem;
+	}
+}
+
 @supports (-webkit-touch-callout: none) {
 	.contact-section {
 		height: -webkit-fill-available; /* iOS Safari Fix */
