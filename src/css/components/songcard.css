@@ -304,6 +304,12 @@
 		font-size: 1.2rem;
 	}
 
+	.play-button {
+		width: 54px;
+		height: 54px;
+		font-size: 1.6rem;
+	}
+
 	.progress-bar {
 		height: 5px;
 	}
@@ -346,6 +352,12 @@
 		width: 34px;
 		height: 34px;
 		font-size: 1rem;
+	}
+
+	.play-button {
+		width: 50px;
+		height: 50px;
+		font-size: 1.4rem;
 	}
 
 	.volume-slider-wrapper {
