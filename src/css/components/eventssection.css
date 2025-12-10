@@ -1,0 +1,316 @@
+/* =============================================== */
+/* Section Wrapper (100vh, snap) */
+/* =============================================== */
+
+.events-section {
+	height: 100vh;
+	display: flex;
+	position: relative;
+	/* scroll-snap-align: start; */
+	padding-right: 120px;
+
+	/* Optional Base Color */
+	background: var(--background-color);
+	overflow: hidden; /* damit das Pseudo-Element nicht überläuft */
+}
+
+/* TEXTURE BACKGROUND über Pseudo-Element */
+.events-section::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-image: url('/img/aufmischen_textur.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	opacity: 0.1; /* leicht subtil, passt zu deinem Style */
+	z-index: 0;
+}
+
+/* Content bleibt sichtbar über der Textur */
+.events-left,
+.events-right {
+	position: relative;
+	z-index: 1;
+}
+
+/* =============================================== */
+/* RIGHT STICKY COLUMN */
+/* =============================================== */
+
+.events-right {
+	flex: 30%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* position: sticky; */
+	/* right: 5rem; */
+	top: 0;
+	height: 100vh;
+}
+
+.events-headline {
+	font-size: clamp(3.5rem, 6vw, 5.5rem);
+	line-height: 1.1;
+	opacity: 0.4;
+	letter-spacing: -1px;
+	font-weight: 700;
+	text-transform: uppercase;
+	user-select: none;
+}
+
+/* =============================================== */
+/* LEFT CONTENT */
+/* =============================================== */
+
+.events-left {
+	width: 100%;
+	display: flex;
+	flex: 70%;
+	align-items: center;
+	height: 100%;
+	/* padding-left: 4rem; */
+	justify-content: center;
+	/* margin: 0 auto; */
+	margin-top: 3rem;
+	/* margin-left: 10rem; */
+}
+
+.events-left-inner {
+	width: 100%;
+	max-width: 650px;
+}
+
+/* =============================================== */
+/* Tabs */
+/* =============================================== */
+
+.events-tabs {
+	display: flex;
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+.events-tab-btn {
+	padding: 0.6rem 1.4rem;
+	border-radius: 8px;
+	border: 1px solid var(--accent-events-color);
+	background: transparent;
+	color: var(--text-color);
+	cursor: pointer;
+	font-size: 1rem;
+	transition: 0.2s ease;
+}
+
+.events-tab-btn.active {
+	background: var(--accent-events-color);
+	color: var(--bg-color);
+}
+
+/* =============================================== */
+/* Scroll Window */
+/* =============================================== */
+
+.events-scroll {
+	height: 60vh;
+	overflow-y: auto;
+	padding-right: 1rem;
+	border-left: 2px solid var(--accent-events-color);
+	position: relative;
+}
+
+.events-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* =============================================== */
+/* Event Card */
+/* =============================================== */
+
+.event-card {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 2rem;
+	position: relative;
+}
+
+.timeline-dot {
+	width: 10px;
+	height: 10px;
+	background: var(--accent-events-color);
+	border-radius: 50%;
+	position: absolute;
+	left: -6px;
+	top: 4px;
+}
+
+.event-content {
+	display: flex;
+	gap: 1.5rem;
+	padding-left: 2rem;
+}
+
+/* DATE */
+
+.event-date {
+	font-weight: 600;
+	text-align: center;
+	min-width: 50px;
+}
+
+.event-date .month {
+	opacity: 0.6;
+	font-size: 0.8rem;
+}
+
+/* INFO */
+
+.event-info {
+	display: flex;
+	flex-direction: column;
+	/* gap: 0.3rem; */
+}
+
+.event-title {
+	font-size: 1.1rem;
+	font-weight: 500;
+}
+
+.event-note {
+	opacity: 0.6;
+	font-size: 0.9rem;
+}
+
+/* Ticket */
+
+.event-ticket-btn {
+	margin-top: 0.5rem;
+	border: 1px solid var(--accent-events-color);
+	padding: 0.4rem 1rem;
+	border-radius: 6px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 0.9rem;
+	transition: 0.2s ease;
+	color: var(--text-color);
+}
+
+.event-ticket-btn:hover {
+	background: var(--accent-events-color);
+	color: var(--text-color);
+}
+
+/* Show All */
+
+.events-show-btn {
+	margin-top: 1.2rem;
+	border: none;
+	background: none;
+	font-size: 1rem;
+	color: var(--accent-events-color);
+	cursor: pointer;
+}
+
+/* Scrollbar minimal */
+
+.events-scroll::-webkit-scrollbar {
+	width: 6px;
+}
+
+.events-scroll::-webkit-scrollbar-thumb {
+	background: var(--accent-events-color);
+	border-radius: 10px;
+}
+
+/* ========================================================= */
+/* MOBILE / TABLET SWITCH @ max-width 1000px */
+/* ========================================================= */
+@media (max-width: 1000px) {
+	/* Section: volle Breite, flex-column */
+	.events-section {
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		height: auto;
+		padding: 2rem; /* optional */
+		margin: 2rem auto;
+	}
+
+	/* Rechte Headline oben, volle Breite */
+	.events-right {
+		width: 100%;
+		flex: none;
+		margin: 0;
+		text-align: center;
+		position: relative;
+		padding: 0;
+		order: 1;
+		height: auto;
+	}
+
+	.events-headline {
+		font-size: clamp(3.5rem, 20vw, 6rem);
+		text-align: center;
+		opacity: 0.3;
+	}
+
+	/* Linke Seite volle Breite unter der Headline */
+	.events-left {
+		width: 100%;
+		flex: none;
+		/* margin: 0; */
+		padding: 0;
+		order: 2;
+		margin-bottom: 4rem;
+	}
+
+	.events-left-inner {
+		max-width: 100%;
+	}
+
+	/* Scrollbereich Höhe reduzieren, linke Linie entfernen */
+	.events-scroll {
+		height: auto;
+		max-height: 50vh;
+		border-left: none;
+		padding-left: 0;
+	}
+
+	/* Event Cards: flex-column, keine Einrückung */
+	.event-content {
+		flex-direction: column;
+		padding-left: 0;
+		gap: 0.5rem;
+	}
+
+	.timeline-dot {
+		left: 0;
+		top: -2px;
+	}
+
+	/* Tabs zentrieren, Buttongröße anpassen */
+	.events-tabs {
+		justify-content: center;
+		margin-bottom: 1rem;
+	}
+
+	.events-tab-btn {
+		font-size: 0.9rem;
+		padding: 0.5rem 1rem;
+	}
+}
+
+/* ========================================================= */
+/* EXTRA SMALL PHONES @ max-width 480px */
+/* ========================================================= */
+@media (max-width: 480px) {
+	.events-headline {
+		font-size: clamp(3.5rem, 20vw, 6rem);
+	}
+
+	.events-show-btn {
+		font-size: 0.9rem;
+	}
+}

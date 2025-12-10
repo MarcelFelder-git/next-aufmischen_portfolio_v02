@@ -9,10 +9,12 @@ const nextConfig = {
 		formats: ['image/avif', 'image/webp'],
 		// https://nextjs.org/docs/app/api-reference/components/image#remotepatterns
 		remotePatterns: [
-			/*     {
-        protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
-      }, */
+			{
+				protocol: 'https',
+				hostname: 'cdn.sanity.io',
+				port: '',
+				pathname: '/images/**',
+			},
 		],
 	},
 	// https://nextjs.org/docs/app/building-your-application/routing/redirecting#redirects-in-nextconfigjs

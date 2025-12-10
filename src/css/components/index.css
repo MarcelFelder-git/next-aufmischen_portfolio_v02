@@ -1,0 +1,13 @@
+/* Hier Komponenten importieren */
+@import './songcard.css';
+@import './aboutsection.css';
+@import './header.css';
+@import './herosection.css';
+@import './eventssection.css';
+@import './contactsection.css';
+@import './footer.css';
+@import './divider.css';
+@import './worksection.css';
+@import './animatedgradient.css';
+@import './privacypolicy.css';
+@import './legalnotice.css';

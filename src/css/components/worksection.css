@@ -1,0 +1,142 @@
+.work-section {
+	position: relative;
+	max-width: 100%;
+	height: 100vh; /* flexibel */
+	margin: 0 auto;
+	padding: 4rem 1rem; /* kleineres Padding auf mobilen */
+	overflow: hidden;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.work-heading-background {
+	position: absolute;
+	top: 85%;
+	left: 25%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	z-index: 1;
+	opacity: 0.1;
+	transition:
+		opacity 0.5s ease,
+		transform 0.5s ease;
+}
+
+.work-heading-background h2 {
+	font-size: clamp(8rem, 20vw, 12rem);
+	font-weight: bold;
+	color: var(--text-color);
+	user-select: none;
+	text-transform: uppercase;
+	/* letter-spacing: 0.1em; */
+	text-align: center;
+	position: sticky;
+}
+
+.mySwiper {
+	width: 100%; /* max Breite 90% des Viewports */
+	max-width: 1200px; /* Desktop */
+	position: relative;
+	z-index: 2;
+	transition:
+		opacity 0.5s ease,
+		transform 0.5s ease;
+}
+
+/* Swiper Navigation */
+.swiper-button-next,
+.swiper-button-prev {
+	--swiper-navigation-size: 2.5rem;
+	--swiper-navigation-top-offset: 50%;
+	--swiper-navigation-sides-offset: 7px;
+	--swiper-navigation-color: var(--accent-color);
+}
+
+/* Pagination */
+.swiper-pagination-bullet {
+	--swiper-pagination-color: var(--accent-color);
+	--swiper-pagination-left: auto;
+	--swiper-pagination-right: 18px;
+	--swiper-pagination-bottom: 18px;
+	--swiper-pagination-top: auto;
+	--swiper-pagination-fraction-color: inherit;
+	--swiper-pagination-progressbar-size: 4px;
+	--swiper-pagination-bullet-size: 8px;
+	--swiper-pagination-bullet-width: 8px;
+	--swiper-pagination-bullet-height: 8px;
+	--swiper-pagination-bullet-inactive-color: var(--text-color);
+	--swiper-pagination-bullet-inactive-opacity: 0.2;
+	--swiper-pagination-bullet-opacity: 1;
+	--swiper-pagination-bullet-horizontal-gap: 4px;
+	--swiper-pagination-bullet-vertical-gap: 6px;
+}
+
+.swiper-pagination-bullet-active {
+	opacity: 1;
+}
+/* ========================================================= */
+/* ======================= MOBILE ========================== */
+/* ========================================================= */
+
+@media (max-width: 1000px) {
+	.work-section {
+		height: auto; /* Wichtig: nicht 100vh */
+		min-height: 100svh; /* Für iOS Safari */
+		padding: 3rem 0 5rem; /* Mehr unten = Platz für Swiper arrows */
+		justify-content: flex-start;
+	}
+
+	/* Background Word repositionieren */
+	.work-heading-background {
+		position: static; /* NICHT mehr absolute */
+		transform: none;
+		left: auto;
+		top: auto;
+		margin: 2rem 0;
+		opacity: 0.15; /* etwas mehr Sichtbarkeit */
+		text-align: center;
+		width: 100%;
+	}
+
+	.work-heading-background h2 {
+		position: static; /* remove sticky */
+		font-size: clamp(3.5rem, 20vw, 6rem);
+	}
+
+	/* Swiper anpassen */
+	.mySwiper {
+		width: 100%;
+		max-width: 420px; /* oder 420px für mobile-friendly */
+		margin: 0 auto;
+	}
+
+	.swiper-button-next,
+	.swiper-button-prev {
+		--swiper-navigation-size: 1.8rem;
+		--swiper-navigation-sides-offset: 0px;
+	}
+
+	/* Slide Breite mobil */
+	.swiper-slide {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+/* ===== SMALL MOBILE (<480px) ===== */
+@media (max-width: 480px) {
+	.work-heading-background h2 {
+		font-size: clamp(3.5rem, 20vw, 5rem);
+	}
+
+	/* .mySwiper {
+		margin-top: 10rem;
+	} */
+
+	/* .swiper-slide {
+		width: 220px !important;
+	} */
+}

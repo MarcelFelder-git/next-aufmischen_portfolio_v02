@@ -1,0 +1,120 @@
+.about-section {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	padding: 4rem;
+	margin-top: 1rem;
+}
+
+/* GRID: Header | Image | Text */
+.about-grid {
+	display: grid;
+	grid-template-columns: auto minmax(250px, 400px) 1fr;
+	align-items: center;
+	gap: 3rem;
+	width: 100%;
+	max-width: 1600px;
+	margin: 0 auto;
+}
+
+/* — LEFT: Vertical Heading — */
+.about-header h2 {
+	font-size: clamp(4rem, 6.5vw, 6rem);
+	writing-mode: vertical-rl;
+	text-orientation: upright;
+	text-transform: uppercase;
+	opacity: 0.3;
+	user-select: none;
+	font-weight: 900;
+	margin-right: 2rem;
+	position: sticky;
+}
+
+/* — MIDDLE: Image — */
+.about-image-wrapper {
+	width: 100%;
+	aspect-ratio: 3/4;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	box-shadow: 0px 0px 20px var(--accent-color);
+}
+
+.about-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* — RIGHT: Text — */
+.about-text {
+	max-width: 60ch;
+	font-size: 1rem;
+	display: flex;
+	flex-direction: column;
+	margin-top: 1rem;
+	/* gap: 1rem; */
+}
+
+.about-text p {
+	max-width: 60ch;
+	margin: 0.5rem 0;
+}
+
+/* MOBILE VERSION – alles untereinander */
+@media (max-width: 1000px) {
+	.about-section {
+		height: auto; /* kein 100vh mehr, Content darf wachsen */
+		padding: 2rem 1.5rem;
+		margin-top: 4rem;
+	}
+
+	.about-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		text-align: center;
+	}
+
+	/* Header horizontal und mittig */
+	.about-header h2 {
+		writing-mode: horizontal-tb;
+		text-orientation: initial;
+		text-align: center;
+		opacity: 0.25;
+		font-size: clamp(3.5rem, 20vw, 6rem);
+		margin-bottom: 3rem;
+	}
+
+	/* Bild: schön groß, aber nicht riesig */
+	.about-image-wrapper {
+		width: 100%;
+		max-width: 22rem;
+		margin: 0 auto;
+		aspect-ratio: 3/4;
+	}
+
+	/* Text: volle Breite, aber angenehm */
+	.about-text {
+		max-width: 100%;
+		font-size: 1rem;
+		line-height: 1.6;
+		padding: 0 1rem;
+	}
+
+	.about-text p {
+		margin: 0.75rem 0;
+	}
+}
+
+/* EXTRA SMALL PHONES */
+@media (max-width: 480px) {
+	.about-image-wrapper {
+		max-width: 18rem;
+	}
+
+	.about-header h2 {
+		font-size: clamp(3.5rem, 20vw, 5rem);
+		margin: 3rem auto;
+	}
+}

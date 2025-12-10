@@ -1,0 +1,63 @@
+:root {
+	/* Standard: Dark Mode */
+	color-scheme: dark light; /* Seite unterstützt beide */
+
+	/* Farben für Dark Mode (Default) */
+	--my-color: var(--stone-3);
+	--honeydew: hsl(105 55% 96%);
+	--white: hsl(0 0% 100%);
+	--powder-blue: hsl(182 43% 76%);
+	--celadon-blue: hsl(203 39% 44%);
+	--prussian-blue: hsl(215 50% 23%);
+	--black: hsl(0 0% 0%);
+	--grey: hsl(0, 98%, 32%);
+	--dark-grey: hsl(0, 0%, 9%);
+	--pink: hsl(332 81 53);
+	--lila-pink: hsla(313, 70%, 60%, 0.939);
+	--darker-lila-pink: hsla(313, 47%, 48%, 0.939);
+	--dark-lila-pink: hsla(308, 52%, 6%, 0.815);
+	--white-pink: hsla(334, 23%, 94%, 0.834);
+	--light-pink: hsl(334, 26%, 79%);
+	--dark-pink: hsl(330, 38%, 23%);
+
+	/* Semantic Colors */
+	--background-color: var(--black);
+	--text-color: var(--white);
+	--heading-color: var(--white);
+	--hero-color: var(--white-pink);
+	--link-color: var(--honeydew);
+	--accent-color: var(--lila-pink);
+	--active-link-color: var(--celadon-blue);
+	--header-footer-background: var(--black);
+	--card-background: var(--dark-lila-pink);
+	--role-background: var(--white-pink);
+	--artist-text-color: var(--white-pink);
+	--role-text-color: var(--black);
+	--accent-events-color: var(--dark-pink);
+}
+
+/* Light Mode aktivieren */
+[data-color-theme='light'] {
+	color-scheme: light dark;
+
+	--background-color: var(--honeydew);
+	--text-color: var(--black);
+	--heading-color: var(--black);
+	--hero-color: var(--white-pink);
+	--link-color: var(--black);
+	--accent-color: var(--darker-lila-pink);
+	--active-link-color: var(--celadon-blue);
+	--header-footer-background: var(--white);
+	--card-background: var(--white-pink);
+	--role-background: var(--dark-lila-pink);
+	--artist-text-color: var(--dark-lila-pink);
+	--role-text-color: var(--white);
+	--accent-events-color: var(--light-pink);
+}
+
+/* Übergänge für sanften Wechsel */
+* {
+	transition:
+		color 0.5s ease,
+		background-color 0.5s ease;
+}

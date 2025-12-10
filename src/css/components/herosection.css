@@ -1,0 +1,193 @@
+/* =============================================== */
+/* Hero Overlay Section + 100vh */
+.hero-overlay-section {
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	overflow: hidden;
+	scroll-snap-align: start;
+	color: var(--text-color);
+	background: var(--background-color);
+}
+
+/* =============================================== */
+/* Animierter Gradient-Hintergrund */
+.hero-animated-bg {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background: linear-gradient(
+		270deg,
+		var(--background-color),
+		var(--accent-color)
+	);
+	background-size: 600% 600%;
+	animation: gradientMove 10s ease infinite;
+	opacity: var(--gradient-opacity-dark); /* Dark Mode */
+	filter: blur(150px);
+	pointer-events: none;
+}
+
+html[data-color-theme='light'] .hero-animated-bg {
+	opacity: var(--gradient-opacity-light); /* Light Mode */
+}
+
+@keyframes gradientMove {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* =============================================== */
+/* Optionales Hintergrundbild */
+.hero-bg-image {
+	position: absolute;
+	inset: 0;
+	background-image: url('/img/bg-img.jpg'); /* dein Bild */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	opacity: 0.5; /* sehr subtil */
+	filter: brightness(0.3);
+	pointer-events: none;
+	z-index: 0;
+}
+
+/* =============================================== */
+/* Typo-Hintergrund */
+.hero-background-words {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: clamp(6rem, 15vw, 15rem);
+	font-weight: 900;
+	color: var(--text-color);
+	opacity: 0.6;
+	text-shadow: 3px 3px 30px var(--text-color);
+	white-space: nowrap;
+	pointer-events: none;
+	user-select: none;
+}
+
+.background-word {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(1);
+	opacity: 0;
+	transition:
+		opacity 0.5s ease,
+		transform 0.5s ease;
+}
+
+.background-word.active {
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* =============================================== */
+/* Hero Content */
+.hero-content {
+	position: relative;
+	z-index: 2;
+	text-align: center;
+	margin-top: 30rem;
+}
+
+.hero-content h1 {
+	font-size: clamp(3rem, 6vw, 6rem);
+	font-weight: 900;
+	margin-bottom: 1rem;
+}
+
+.hero-content p {
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	margin-bottom: 2rem;
+}
+
+.hero-cta {
+	display: inline-block;
+	padding: 1rem 2rem;
+	border: 1px solid var(--accent-events-color);
+	border-radius: 8px;
+	text-decoration: none;
+	color: var(--text-color);
+	font-weight: 600;
+	transition: 0.3s;
+}
+
+.hero-cta:hover {
+	background: var(--accent-events-color);
+	color: var(--background-color);
+}
+
+/* =============================================== */
+/* Gradient-Opacity Variablen */
+:root {
+	--gradient-opacity-light: 0.25;
+	--gradient-opacity-dark: 0.25;
+}
+
+/* ========================================================= */
+/* ======================= MOBILE ========================== */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+	.hero-overlay-section {
+		height: auto;
+		min-height: 100svh;
+		padding: 4rem 1.5rem;
+		justify-content: flex-end; /* Content nach unten */
+	}
+
+	/* Hintergrundwörter verkleinern + weiter oben */
+	.hero-background-words {
+		font-size: clamp(3rem, 18vw, 5rem);
+		opacity: 0.35;
+		top: 40%;
+	}
+
+	.background-word.active {
+		transform: translate(-50%, -50%) scale(1.02);
+	}
+
+	/* CTA zentral + margin fix */
+	.hero-content {
+		text-align: center;
+		margin: 0 auto;
+		margin-top: 15rem;
+		/* margin-bottom: 2rem; */
+	}
+
+	.hero-content h1 {
+		font-size: clamp(2rem, 8vw, 3.5rem);
+	}
+
+	/* Button größer antippbar */
+	.hero-cta {
+		padding: 1.2rem 2.4rem;
+		font-size: 1.2rem;
+		border-width: 2px;
+	}
+
+	/* Blur-Hintergrund etwas stärker auf Mobile */
+	.hero-animated-bg {
+		filter: blur(180px);
+	}
+
+	/* Hintergrundbild leicht dunkler für Lesbarkeit */
+	.hero-bg-image {
+		filter: brightness(0.25);
+	}
+}

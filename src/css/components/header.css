@@ -1,0 +1,214 @@
+.glass-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 2rem 2rem;
+	backdrop-filter: blur(10px);
+	z-index: 100;
+	transition:
+		color 0.25s ease,
+		background-color 0.25s ease,
+		backdrop-filter 0.25s ease;
+}
+
+.glass-header .header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-container {
+	max-width: 1400px;
+	margin: 0 auto;
+	width: 100%;
+	display: flex;
+	/* justify-content: space-between; */
+	align-items: center;
+}
+
+.glass-header .nav-links a {
+	margin-left: 2rem;
+	text-decoration: none;
+	color: var(--link-color);
+	font-weight: 400;
+	font-size: 1.2rem;
+	transition: color 0.3s;
+}
+
+.glass-header .nav-links a:hover {
+	color: var(--accent-color);
+}
+
+.logo-name-container {
+	display: flex;
+	align-items: center;
+	gap: 0.2rem;
+	text-decoration: none;
+	color: var(--text-color);
+}
+
+.logo {
+	fill: var(--text-color);
+}
+.logo:hover {
+	fill: var(--accent-color);
+}
+.artist-name:hover {
+	color: var(--accent-color);
+}
+
+.artist-name {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--text-color);
+	font-family: var(--font-merriweather, sans-serif);
+}
+
+.instagram-link {
+	align-items: center;
+	/* padding-left: 1.2rem; */
+	justify-content: center; /* optional: horizontal zentrieren, falls Icon alleine */
+	color: var(--link-color);
+	transition: color 0.3s;
+}
+
+.instagram-icon {
+	vertical-align: middle; /* optional */
+	font-size: 1.6rem;
+	transform: translateY(-1px); /* nach unten verschieben */
+}
+
+.nav-toggle {
+	margin-left: 2rem;
+	display: flex;
+	flex-direction: row;
+	cursor: pointer;
+	gap: 2rem;
+}
+
+/* Header über dunklem Hero */
+/* .glass-header.hero-active {
+	--text-color: var(--white);
+	--link-color: var(--white);
+} */
+
+.theme-toggle {
+	font-size: 1.1rem;
+	/* margin-top: 0.2rem; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	color: var(--text-color);
+	transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+	color: var(--accent-color);
+}
+
+.lang-toggle {
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
+	justify-content: center;
+	margin-bottom: 0.2rem;
+}
+
+.lang-toggle button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--text-color);
+	font-weight: normal;
+	transition: color 0.2s ease;
+}
+
+.lang-toggle button.active {
+	font-weight: bold;
+	color: var(--accent-color);
+}
+
+.lang-toggle .separator {
+	user-select: none;
+	color: var(--text-color);
+}
+
+.nav-actions {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+	.header-container {
+		padding: 0;
+	}
+
+	/* Navigation & Actions verstecken */
+	.nav-links,
+	.nav-actions {
+		display: none;
+	}
+
+	.artist-name {
+		font-size: 1rem;
+	}
+
+	.glass-header {
+		padding: 1rem;
+	}
+}
+
+/* Tablet / Small Laptop — kompakter, aber noch Desktop-Navi
+   Bereich: 900px bis 1200px */
+@media (min-width: 900px) and (max-width: 1200px) {
+	.glass-header {
+		padding: 1.2rem 1.5rem; /* weniger Höhe + seitliche Luft */
+	}
+
+	.header-container {
+		gap: 0rem;
+	}
+
+	.logo-name-container {
+		gap: 0.4rem;
+		max-width: none;
+	}
+
+	.artist-name {
+		font-size: 1.05rem; /* etwas kleiner */
+	}
+	.nav-toggle {
+		margin-left: 0;
+	}
+
+	.nav-links {
+		gap: 1rem; /* enger */
+	}
+
+	.glass-header .nav-links a {
+		font-size: 0.9rem;
+		margin-left: 1.4rem;
+	}
+
+	.nav-actions {
+		gap: 0.8rem; /* enger */
+	}
+
+	.instagram-icon {
+		font-size: 1.1rem; /* etwas kleiner */
+		transform: translateY(0);
+	}
+
+	.theme-toggle {
+		font-size: 1rem;
+	}
+
+	.lang-toggle button {
+		font-size: 0.9rem;
+	}
+}
