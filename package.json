@@ -8,11 +8,10 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"vercel-build": "prisma generate && prisma migrate deploy && next build"
+		"vercel-build": "next build"
 	},
 	"dependencies": {
 		"@fullpage/react-fullpage": "^0.1.49",
-		"@prisma/client": "^6.7.0",
 		"@sanity/image-url": "^1.2.0",
 		"@types/nodemailer": "^7.0.4",
 		"client-only": "^0.0.1",
