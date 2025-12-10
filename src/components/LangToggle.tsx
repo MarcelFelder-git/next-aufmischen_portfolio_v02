@@ -3,7 +3,11 @@
 import { useLanguage } from '@/src/contexts/LanguageContext';
 import { useEffect } from 'react';
 
-export default function LangToggle() {
+interface LangToggleProps {
+	onChange?: (selectedLang: 'de' | 'en') => void;
+}
+
+export default function LangToggle({ onChange }: LangToggleProps) {
 	const { lang, setLang } = useLanguage();
 
 	// Debug: log whenever lang changes
@@ -11,14 +15,17 @@ export default function LangToggle() {
 		console.log('Current language:', lang);
 	}, [lang]);
 
+	const handleClick = (selectedLang: 'de' | 'en') => {
+		console.log('Switching to', selectedLang.toUpperCase());
+		setLang(selectedLang);
+		if (onChange) onChange(selectedLang);
+	};
+
 	return (
 		<div className="lang-toggle">
 			<button
 				className={lang === 'de' ? 'active' : ''}
-				onClick={() => {
-					console.log('Switching to DE');
-					setLang('de');
-				}}
+				onClick={() => handleClick('de')}
 				aria-label="Switch to German"
 			>
 				DE
@@ -26,10 +33,7 @@ export default function LangToggle() {
 			<span className="separator">|</span>
 			<button
 				className={lang === 'en' ? 'active' : ''}
-				onClick={() => {
-					console.log('Switching to EN');
-					setLang('en');
-				}}
+				onClick={() => handleClick('en')}
 				aria-label="Switch to English"
 			>
 				EN
