@@ -1,5 +1,6 @@
 .contact-section {
 	height: 100vh;
+	height: 100dvh;
 	display: flex;
 	width: 100%;
 	position: relative;
@@ -158,7 +159,8 @@ textarea:focus {
 	/* Section: flex-column, Höhe auto */
 	.contact-section {
 		flex-direction: column;
-		height: 100svh;
+		height: auto;
+		min-height: 100vh;
 		padding: 2rem 0;
 		align-items: center;
 		margin-bottom: 3rem;
@@ -201,5 +203,11 @@ textarea:focus {
 		writing-mode: horizontal-tb;
 		text-orientation: initial;
 		text-align: center;
+	}
+}
+
+@supports (-webkit-touch-callout: none) {
+	.contact-section {
+		height: -webkit-fill-available; /* iOS Safari Fix */
 	}
 }
