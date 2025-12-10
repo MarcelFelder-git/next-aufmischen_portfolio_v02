@@ -15,9 +15,21 @@ export async function sendEmail(data: FormData): Promise<EmailResponse> {
 		headers: { 'Content-Type': 'application/json' },
 	});
 
-	const json: EmailResponse = await res.json();
+	let json: unknown;
+	try {
+		json = await res.json();
+	} catch {
+		throw new Error('Invalid JSON response');
+	}
 
-	if (!res.ok) throw new Error(json.error || 'Failed to send email');
-
-	return json;
+	// Type-safe check
+	if (
+		typeof json === 'object' &&
+		json !== null &&
+		('message' in json || 'error' in json)
+	) {
+		return json as EmailResponse;
+	} else {
+		throw new Error('Unexpected response shape');
+	}
 }
