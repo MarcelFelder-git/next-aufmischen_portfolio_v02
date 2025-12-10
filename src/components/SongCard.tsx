@@ -5,6 +5,7 @@ import type { Song } from '@/src/types/song';
 import { client } from '@/src/sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import { Volume2 } from 'lucide-react';
+import { Play, Pause } from 'lucide-react';
 
 type SanityImageSource = Parameters<typeof builder.image>[0];
 
@@ -142,7 +143,9 @@ export default function SongCard({ song, onColorExtracted }: Props) {
 			</div>
 
 			<div className="audio-controls">
-				<button onClick={handlePlayPause}>{isPlaying ? '❚❚' : '▶'}</button>
+				<button onClick={handlePlayPause} className="play-button">
+					{isPlaying ? <Pause size={28} /> : <Play size={28} />}
+				</button>
 				<input
 					type="range"
 					min={0}

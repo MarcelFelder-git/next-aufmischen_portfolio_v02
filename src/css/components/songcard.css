@@ -164,55 +164,64 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--accent-color);
+	color: var(--text-color);
 }
+/* ===================== */
+/* VOLUME SLIDER FIX     */
+/* ===================== */
 
-/* Slider Wrapper */
+/* Wrapper kleiner & zentriert */
 .volume-slider-wrapper {
 	position: absolute;
-	bottom: 60px; /* Abstand nach oben vom Button */
+	bottom: 55px;
 	right: 50%;
-	transform: translateX(50%) translateY(150%);
-	width: 120px;
+	transform: translateX(50%);
+	width: 90px; /* Breite anpassen */
 	display: flex;
 	justify-content: center;
-	transition:
-		opacity 0.2s ease,
-		transform 0.2s ease;
+	padding: 0.25rem 0;
 }
 
-/* Slider Styling */
+/* Der Slider selbst */
 .volume-slider {
-	width: 100%;
-	cursor: pointer;
 	-webkit-appearance: none;
-	background: var(--text-color);
-	height: 6px;
-	border-radius: 3px;
+	width: 100%;
+	height: 6px; /* gleiche Höhe wie progress */
+	background: var(--track-color);
+	border-radius: 30px;
+	cursor: pointer;
 }
 
+/* Track (Webkit: iOS Safari!) */
+.volume-slider::-webkit-slider-runnable-track {
+	height: 6px;
+	background: var(--track-color);
+	border-radius: 30px;
+}
+
+/* Thumb */
 .volume-slider::-webkit-slider-thumb {
 	-webkit-appearance: none;
-	width: 16px;
-	height: 16px;
+	width: 14px;
+	height: 14px;
 	border-radius: 50%;
-	background: var(--accent-color);
+	background: var(--track-color);
+	margin-top: -4px; /* perfekt mittig */
 	cursor: pointer;
+}
+
+/* Firefox */
+.volume-slider::-moz-range-track {
+	height: 6px;
+	background: var(--track-color);
+	border-radius: 30px;
 }
 
 .volume-slider::-moz-range-thumb {
-	width: 16px;
-	height: 16px;
+	width: 14px;
+	height: 14px;
 	border-radius: 50%;
-	background: var(--accent-color);
-	cursor: pointer;
-}
-
-.volume-slider::-ms-thumb {
-	width: 16px;
-	height: 16px;
-	border-radius: 50%;
-	background: var(--accent-color);
+	background: var(--track-color);
 	cursor: pointer;
 }
 
@@ -342,4 +351,48 @@
 	.volume-slider-wrapper {
 		width: 80px;
 	}
+}
+
+.play-button {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: none;
+	background: var(--text-color);
+	color: var(--background-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: background 0.25s ease;
+}
+
+/* .play-button:hover {
+
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+.volume-button:hover {
+
+	background-color: var(--background-color);
+	color: var(--text-color);
+} */
+
+.progress-bar {
+	background: var(--track-color);
+}
+
+.progress-bar::-webkit-slider-runnable-track {
+	background: var(--track-color);
+	height: 6px;
+	border-radius: 30px;
+}
+
+.progress-bar::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background: var(--track-color);
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	margin-top: -5px;
 }

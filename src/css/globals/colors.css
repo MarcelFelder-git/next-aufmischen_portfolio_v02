@@ -34,6 +34,7 @@
 	--artist-text-color: var(--white-pink);
 	--role-text-color: var(--black);
 	--accent-events-color: var(--dark-pink);
+	--track-color: var(--honeydew);
 }
 
 /* Light Mode aktivieren */
@@ -53,6 +54,7 @@
 	--artist-text-color: var(--dark-lila-pink);
 	--role-text-color: var(--white);
 	--accent-events-color: var(--light-pink);
+	--track-color: var(--black);
 }
 
 /* Übergänge für sanften Wechsel */
