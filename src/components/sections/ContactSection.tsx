@@ -22,19 +22,17 @@ const Contact: FC = () => {
 		setStatus('sending');
 		try {
 			const response = await sendEmail(data);
-			if (response?.message) {
+			if (response.message) {
 				setStatus('success');
 				reset();
 			} else {
 				throw new Error('Unknown error');
 			}
 		} catch (err: unknown) {
+			let errorMessage = 'Something went wrong';
+			if (err instanceof Error) errorMessage = err.message;
 			setStatus('error');
-			if (err instanceof Error) {
-				setErrorMessage(err.message);
-			} else {
-				setErrorMessage('Something went wrong');
-			}
+			setErrorMessage(errorMessage);
 		}
 	}
 

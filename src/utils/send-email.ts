@@ -1,6 +1,12 @@
+// utils/send-email.ts
 import type { FormData } from '@/src/components/sections/ContactSection';
 
-export async function sendEmail(data: FormData) {
+interface EmailResponse {
+	message?: string;
+	error?: string;
+}
+
+export async function sendEmail(data: FormData): Promise<EmailResponse> {
 	const apiEndpoint = '/api/email';
 
 	const res = await fetch(apiEndpoint, {
@@ -9,7 +15,9 @@ export async function sendEmail(data: FormData) {
 		headers: { 'Content-Type': 'application/json' },
 	});
 
-	const json = await res.json();
+	const json: EmailResponse = await res.json();
+
 	if (!res.ok) throw new Error(json.error || 'Failed to send email');
+
 	return json;
 }
