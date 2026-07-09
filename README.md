@@ -33,21 +33,28 @@ This project was developed as a comprehensive contract work up to a 100% product
 ```bash 
 git clone https://github.com/MarcelFelder-git/next-aufmischen_portfolio_v02.git
 cd next-aufmischen_portfolio_v02
+````
 
 ### Step 2: Install project dependencies
 
+```bash 
 npm install
+````
 
 ### Step 3: Set up Environment Variables
 
 Create a file named .env.local in the root directory and insert your Sanity credentials:
 
+```bash
 NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
 NEXT_PUBLIC_SANITY_DATASET=production
+````
 
 ### Step 4: Run the local development server
 
+```bash 
 npm run dev
+````
 
 Open http://localhost:3000 in your browser to see the results.
 
