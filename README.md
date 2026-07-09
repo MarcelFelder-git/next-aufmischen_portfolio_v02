@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
+# AUFMISCHEN – Artist Portfolio Engine 🚀🎵
 
-## Getting Started
+A modern, highly optimized, headless portfolio website built for **AUFMISCHEN** (Producer, Mixing/Mastering Engineer, and Artist). The application decouples the content management from the presentation layer, delivering a blazing-fast user experience with an interactive UI.
 
-First, run the development server:
+## 🛠️ Tech Stack
 
-```bash
+- **Frontend Framework:** Next.js (React)
+- **Content Management System:** Sanity CMS (Headless)
+- **Styling:** Responsive Layout, Modular Design
+- **Deployment & Hosting:** Vercel
+
+---
+
+## ✨ Features & Architecture
+
+- **Headless Content Delivery:** Fully integrated with Sanity CMS. Audio references, project categories, upcoming events, and biography texts are pulled dynamically via structured GROQ queries.
+- **Dynamic Modular Sections:** Fully responsive structure separating content into Work, About, Events, and Contact.
+- **Asset Optimization:** Built-in Next.js image and asset optimization, fetching dynamically managed media smoothly from the Sanity CDN.
+- **Production-Ready Core:** Designed with a scalable component structure to easily repurpose the layout engine for other artists or music professionals.
+
+---
+
+## 🛑 Project Status Disclaimer
+
+This project was developed as a comprehensive contract work up to a 100% production-ready state. Due to client-side internal shifts and communication freezes prior to deployment, the site was not officially launched to the custom domain. It is hosted here as a fully functional, open-source showcase demonstrating advanced Next.js dynamic rendering and Headless CMS architectures.
+
+---
+
+## 🚀 Getting Started & Local Setup
+
+### Step 1: Clone the repository
+
+```bash 
+git clone https://github.com/MarcelFelder-git/next-aufmischen_portfolio_v02.git
+cd next-aufmischen_portfolio_v02
+
+### Step 2: Install project dependencies
+
+npm install
+
+### Step 3: Set up Environment Variables
+
+Create a file named .env.local in the root directory and insert your Sanity credentials:
+
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+
+### Step 4: Run the local development server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser to see the results.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Inter, a custom Google Font.
+## 🎨 Schema Architecture (Sanity Studio)
 
-## Learn More
+The underlying CMS backend is modeled specifically to represent music production and live events:
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **track / work:** Fields for audio player links, artwork, credit descriptions (Producing, Mixing, Mastering), and artist names.
+- **about:** Rich text block for bio updates along with dynamic hero image synchronization.
+- **events:** Dynamic calendar entries handling tour dates or DJ gigs.
