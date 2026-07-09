@@ -1,4 +1,4 @@
-![AUFMISCHEN – Artist Portfolio Engine]
+<h1 align="center">AUFMISCHEN – Artist Portfolio Engine 🚀</h1>
 
 ## Table of Contents
 - [Short Description](#short-description)
