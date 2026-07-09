@@ -23,19 +23,19 @@ The project separates the content management from the frontend presentation usin
 
 ### Screenshots
 <p align="center">
-  <img src="aufmischen_v2_1.png" alt="AUFMISCHEN Portfolio Screenshot 1" width="80%"/>
+  <img src="aufmischen_v2_1.PNG" alt="AUFMISCHEN Portfolio Screenshot 1" width="80%"/>
 </p>
 <p align="center">
-  <img src="aufmischen_v2_2.png" alt="AUFMISCHEN Portfolio Screenshot 2" width="80%"/>
+  <img src="aufmischen_v2_2.PNG" alt="AUFMISCHEN Portfolio Screenshot 2" width="80%"/>
 </p>
 <p align="center">
-  <img src="aufmischen_v2_3.png" alt="AUFMISCHEN Portfolio Screenshot 3" width="80%"/>
+  <img src="aufmischen_v2_3.PNG" alt="AUFMISCHEN Portfolio Screenshot 3" width="80%"/>
 </p>
 <p align="center">
-  <img src="aufmischen_v2_4.png" alt="AUFMISCHEN Portfolio Screenshot 4" width="80%"/>
+  <img src="aufmischen_v2_4.PNG" alt="AUFMISCHEN Portfolio Screenshot 4" width="80%"/>
 </p>
 <p align="center">
-  <img src="aufmischen_v2_5.png" alt="AUFMISCHEN Portfolio Screenshot 5" width="80%"/>
+  <img src="aufmischen_v2_5.PNG" alt="AUFMISCHEN Portfolio Screenshot 5" width="80%"/>
 </p>
 
 ---
