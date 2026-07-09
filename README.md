@@ -1,69 +1,114 @@
-# AUFMISCHEN – Artist Portfolio Engine 🚀🎵
+![AUFMISCHEN – Artist Portfolio Engine]
 
-A modern, highly optimized, headless portfolio website built for **AUFMISCHEN** (Producer, Mixing/Mastering Engineer, and Artist). The application decouples the content management from the presentation layer, delivering a blazing-fast user experience with an interactive UI.
+## Table of Contents
+- [Short Description](#short-description)
+- [Showcase](#showcase)
+- [Key Features](#key-features)
+- [Technologies Used](#technologies-used)
+- [Challenges & Lessons Learned](#challenges--lessons-learned)
+- [How to Get Started (Local Setup)](#how-to-get-started-local-setup)
+- [Live Demo](#live-demo)
+- [Data Source](#data-source)
+- [Notes](#notes)
 
-## 🛠️ Tech Stack
+## Short Description
+**Welcome to the AUFMISCHEN Artist Portfolio Engine!**  
+This is a modern, high-performance web application built for the Frankfurt/Berlin-based music producer and artist **AUFMISCHEN**. 
 
+The project separates the content management from the frontend presentation using a modern **Headless CMS architecture**. It delivers a blazing-fast user experience to showcase musical work, audio references, tour dates, and biographical content.
+
+---
+
+## Showcase
+
+### Screenshots
+<p align="center">
+  <img src="aufmischen_v2_1.png" alt="AUFMISCHEN Portfolio Screenshot 1" width="80%"/>
+</p>
+<p align="center">
+  <img src="aufmischen_v2_2.png" alt="AUFMISCHEN Portfolio Screenshot 2" width="80%"/>
+</p>
+<p align="center">
+  <img src="aufmischen_v2_3.png" alt="AUFMISCHEN Portfolio Screenshot 3" width="80%"/>
+</p>
+<p align="center">
+  <img src="aufmischen_v2_4.png" alt="AUFMISCHEN Portfolio Screenshot 4" width="80%"/>
+</p>
+<p align="center">
+  <img src="aufmischen_v2_5.png" alt="AUFMISCHEN Portfolio Screenshot 5" width="80%"/>
+</p>
+
+---
+
+## Key Features 
+
+- **Headless CMS Integration:** Content is fully decoupled and dynamically managed using Sanity CMS.
+- **Dynamic Work Sektion:** Displays audio references categorized by credits (Producing, Mixing, Mastering).
+- **Responsive Modular Design:** Clean layouts for *Work*, *About*, *Events*, and *Contact* sections that adapt smoothly to different screen sizes.
+- **Asset Optimization:** Leverages Next.js image optimization pipelines to fetch high-res media smoothly from the Sanity CDN.
+- **Event Management Pipeline:** Includes a specialized content schema to dynamically handle upcoming tour dates or DJ live gigs.
+
+---
+
+## Technologies Used 
 - **Frontend Framework:** Next.js (React)
-- **Content Management System:** Sanity CMS (Headless)
-- **Styling:** Responsive Layout, Modular Design
+- **Content Management:** Sanity CMS (Headless)
+- **Styling:** Responsive Layout, CSS Modules
 - **Deployment & Hosting:** Vercel
 
 ---
 
-## ✨ Features & Architecture
-
-- **Headless Content Delivery:** Fully integrated with Sanity CMS. Audio references, project categories, upcoming events, and biography texts are pulled dynamically via structured GROQ queries.
-- **Dynamic Modular Sections:** Fully responsive structure separating content into Work, About, Events, and Contact.
-- **Asset Optimization:** Built-in Next.js image and asset optimization, fetching dynamically managed media smoothly from the Sanity CDN.
-- **Production-Ready Core:** Designed with a scalable component structure to easily repurpose the layout engine for other artists or music professionals.
-
----
-
-## 🛑 Project Status Disclaimer
-
-This project was developed as a comprehensive contract work up to a 100% production-ready state. Due to client-side internal shifts and communication freezes prior to deployment, the site was not officially launched to the custom domain. It is hosted here as a fully functional, open-source showcase demonstrating advanced Next.js dynamic rendering and Headless CMS architectures.
+## Challenges & Lessons Learned
+- **Headless Architecture:** Gained deep experience in decoupling content management from the frontend layer, utilizing structured GROQ queries to fetch CMS data.
+- **Next.js Rendering Pipelines:** Optimized page performance and load times by leveraging Next.js-specific rendering strategies and dynamic routing.
+- **Asset Delivery:** Implemented smooth synchronization and optimization pipelines for media assets hosted on external CDNs.
+- **Scalable Component Modeling:** Developed a reusable layout core that can easily be modified or white-labeled for other musical artists and industry professionals.
 
 ---
 
-## 🚀 Getting Started & Local Setup
+## How to Get Started (Local Setup)
+To run this project locally, follow these steps:
 
-### Step 1: Clone the repository
+1. Clone the repository:
+   ```bash 
+   git clone https://github.com/MarcelFelder-git/next-aufmischen_portfolio_v02.git
+   ````
+   
+3. Navigate to the project directory:
+   ```bash 
+   cd next-aufmischen_portfolio_v02
+   ````
 
-```bash 
-git clone https://github.com/MarcelFelder-git/next-aufmischen_portfolio_v02.git
-cd next-aufmischen_portfolio_v02
-````
-
-### Step 2: Install project dependencies
-
-```bash 
-npm install
-````
-
-### Step 3: Set up Environment Variables
-
-Create a file named .env.local in the root directory and insert your Sanity credentials:
-
-```bash
-NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
-NEXT_PUBLIC_SANITY_DATASET=production
-````
-
-### Step 4: Run the local development server
-
-```bash 
-npm run dev
-````
-
-Open http://localhost:3000 in your browser to see the results.
+5. Install dependencies:
+   ```bash 
+   npm install
+   ````
+   
+7. Set up Environment Variables:
+   Create a file named .env.local in the root directory and insert your Sanity credentials:
+   ```bash 
+   NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
+   NEXT_PUBLIC_SANITY_DATASET=production
+   ````
+   
+9. Start the application:
+   ```bash 
+   npm run dev
+   ````
 
 ---
 
-## 🎨 Schema Architecture (Sanity Studio)
+## Live Demo 
+You can view the fully functional, deployed application showcase here:  
 
-The underlying CMS backend is modeled specifically to represent music production and live events:
+[AUFMISCHEN Portfolio on Vercel](https://next-aufmischen-portfolio-v03.vercel.app/)
 
-- **track / work:** Fields for audio player links, artwork, credit descriptions (Producing, Mixing, Mastering), and artist names.
-- **about:** Rich text block for bio updates along with dynamic hero image synchronization.
-- **events:** Dynamic calendar entries handling tour dates or DJ gigs.
+---
+
+## Data Source
+All texts, media files, and production credits are fetched live via a secure connection from the [Sanity Content Lake API](https://www.sanity.io/docs/datastore-api). 
+
+---
+
+## Notes
+**Project Status Note:** This project was built and finalized up to a 100% production-ready state as a freelance client contract. Due to client-side internal shifts and communication freezes prior to the final domain mapping, the site was not launched publicly under the client's official domain. It stands as a fully operational open-source portfolio showcase of modern web development and Headless CMS integrations.
